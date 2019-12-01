@@ -1,0 +1,42 @@
+<html>
+  <body>
+    <h2>KöMaL letöltés</h2>
+
+    <form method="POST">
+      Név:<br />
+      <input type="text" name="name" placeholder="Cserkész Csilla" />
+      <br />
+      Email cím:<br />
+      <input type="email" name="email" placeholder="cserkesz.csilla@cserkesz.hu" />
+      <br />
+      Jelszó:<br />
+      <input type="password" name="password" /><br />
+      <small>A biztonság kedvéért érdemes egyedi jelszót használni.</small>
+      <br />
+      <br />
+      Hónap: <br />
+      <input type="month" name="date" /><br />
+      <small>A megjelenés hava.</small><br />
+      Fájlok:<br />
+      <input type="text" name="files" value="B A, C K, M G P, I I/S S" /><br />
+      <b
+        ><u>FONTOS!</u> A fájlok vesszővel, és azt követően szóközzel; a fájlon belüli pontversenyek szóközzel
+        elválasztva adandóak meg.</b
+      ><br />
+      Tehát pl.: "B A, I/S S" érvényes bemenet, amely két fájlt eredményez. Hasonlóan helyes bemenetek a következők:<br />
+      "A B C, M P G, I I/S S"<br />
+      A fájlokon belül a pontversenyek (tantárgytól függetlenül) szabadon változtathatóak.<br />
+      Tehát pl.: "A P S" egy érvényes kérés, amely egyetlen fájlként küldi el az A, P, és S pontversenyeket.<br />
+      A pontversenyek kódjai: A B C K I I/S S M P G.<br />
+      <br />
+      Címzettek:<br />
+      <input type="text" name="recipents" /><br />
+      <b>Formátum:</b> email címek, vesszővel és szóközzel elválasztva. (Pl.: "a@a.com, b@b.com")<br />
+      <small>Alapértelmezetten <u>nem</u> továbbítja a bejelentkezéshez használt email címre.</small><br /><br />
+      <input type="submit" />
+    </form>
+
+    <!-- <p>Note that the form itself is not visible.</p> -->
+    <!-- <p>Also note that the default width of a text input field is 20 characters.</p> -->
+  </body>
+</html>

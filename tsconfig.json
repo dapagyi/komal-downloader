@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "./build",
+    "rootDir": "./lib",
+    "strict": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true
+  },
+  "include": ["lib/**/*.ts", "test/*.ts", "test/index.test.ts"],
+  "exclude": ["node_modules", "test/**/*.ts"]
+}

@@ -1,0 +1,47 @@
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+>
+
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ["&tex;","&xet;"], ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true
+    },
+    TeX: {
+      Macros: {
+        sgn:  "{\\mathop{\\rm sgn\\,}\\nolimits}",
+        sign:  "{\\mathop{\\rm sign\\,}\\nolimits}",
+        re:  "{\\mathop{\\rm Re}\\nolimits}",
+        im:  "{\\mathop{\\rm Im}\\nolimits}",
+        tg:  "{\\mathop{\\rm tg\\,}\\nolimits}",
+        ctg:  "{\\mathop{\\rm ctg\\,}\\nolimits}",
+        arctg: "{\\mathop{\\rm arctg\\,}\\nolimits}",
+        arccot: "{\\mathop{\\rm arccot\\,}\\nolimits}",
+        arcctg: "{\\mathop{\\rm arcctg\\,}\\nolimits}",
+        sh:  "{\\mathop{\\rm sh\\,}\\nolimits}",
+        ch:  "{\\mathop{\\rm ch\\,}\\nolimits}",
+        th:  "{\\mathop{\\rm th\\,}\\nolimits}",
+        cth:  "{\\mathop{\\rm cth\\,}\\nolimits}",
+        vec: ["\\overrightarrow{#1}",1]
+      }
+    },
+    "HTML-CSS": {
+      preferredFont: "STIX",
+      scale: 90
+    },
+    "CommonHTMLa": {
+      preferredFont: "STIX",
+      scale: 100
+    }
+  });
+
+  MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
+</script>
+
+<div align="right" id="greeting"></div>
+
+<div id="contests" style="position: absolute; top: 0;"></div>
