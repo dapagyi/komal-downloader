@@ -12,7 +12,8 @@
     "dev": "cross-env NODE_ENV=development nodemon --watch ./build build/server",
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "cross-env NODE_ENV=production node build/server"
+    "start": "cross-env NODE_ENV=production node build/server",
+    "postinstall": "tsc -m system --outfile index.js"
   },
   "author": "David Apagyi <david.apagyi@gmail.com>",
   "license": "ISC",
