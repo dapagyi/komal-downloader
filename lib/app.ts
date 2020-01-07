@@ -33,7 +33,7 @@ app.post('/', (req, res) => {
     }),
     parseInt(req.body.date.split('-')[0]),
     parseInt(req.body.date.split('-')[1]),
-    'Természeten s törvényein az éj sötétje ült.<br>Isten szólt: - Legyen Newton! - s mindenre fény derült.',
+    'Mondd el és elfelejtem; mutasd meg és megjegyzem;<br> engedd, hogy csináljam és megértem.<br><i>Konfuciusz</i>',
     req.body.recipents.split(', '),
     (msg: string) => {
       logger.info(msg);
