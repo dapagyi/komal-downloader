@@ -162,79 +162,83 @@ export default async function(
 
   await browser.close();
 
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.GMAIL_USERNAME,
-      pass: process.env.GMAIL_PASSWORD,
-    },
-  });
+  // EMAIL
 
-  let info = await transporter.sendMail({
-    from: '"KöMaL" <apagyi.david@gmail.com>',
-    to: '',
-    bcc: emailAddresses.join(', '),
-    subject: `${year}. ${moment({ month: month.valueOf() - 1 })
-      .locale('hu')
-      .format('MMMM')
-      .toLowerCase()}i KöMaL feladatok`,
-    text: '',
-    html: `Szia!<br><br>Az alábbiakban csatolom a kért pontversenyek feladatait.<br><br>Minden jót,<br>Dávid`,
-    attachments: files.map(file => {
-      const fileName =
-        year +
-        month.toString().padStart(2, '0') +
-        file
-          .join('')
-          .split('/')
-          .join('p') +
-        '.pdf';
-      const filePath = path.join(__dirname, '..', 'temp', fileName);
-      return {
-        filename: fileName,
-        path: filePath,
-      };
-    }),
-  });
-  console.log('Message sent: %s', info.messageId);
+  // var transporter = nodemailer.createTransport({
+  //   service: 'gmail',
+  //   auth: {
+  //     user: process.env.GMAIL_USERNAME,
+  //     pass: process.env.GMAIL_PASSWORD,
+  //   },
+  // });
 
-  await transporter.sendMail({
-    to: 'apagyi.david@gmail.com',
-    subject: 'KöMaL letöltő használva',
-    html: `${name} a következők letöltésére használta a programot: ${files
-      .map(file => {
-        return (
-          year +
-          month.toString().padStart(2, '0') +
-          file
-            .join('')
-            .split('/')
-            .join('p') +
-          '.pdf'
-        );
-      })
-      .join(', ')}.<br>A következő cím${emailAddresses.length > 1 ? 'ek' : ''}re lett elküldve: ${emailAddresses.join(
-      ', ',
-    )}`,
-  });
+  // let info = await transporter.sendMail({
+  //   from: '"KöMaL" <apagyi.david@gmail.com>',
+  //   to: '',
+  //   bcc: emailAddresses.join(', '),
+  //   subject: `${year}. ${moment({ month: month.valueOf() - 1 })
+  //     .locale('hu')
+  //     .format('MMMM')
+  //     .toLowerCase()}i KöMaL feladatok`,
+  //   text: '',
+  //   html: `Szia!<br><br>Az alábbiakban csatolom a kért pontversenyek feladatait.<br><br>Minden jót,<br>Dávid`,
+  //   attachments: files.map(file => {
+  //     const fileName =
+  //       year +
+  //       month.toString().padStart(2, '0') +
+  //       file
+  //         .join('')
+  //         .split('/')
+  //         .join('p') +
+  //       '.pdf';
+  //     const filePath = path.join(__dirname, '..', 'temp', fileName);
+  //     return {
+  //       filename: fileName,
+  //       path: filePath,
+  //     };
+  //   }),
+  // });
+  // console.log('Message sent: %s', info.messageId);
 
-  await Promise.all(
-    files.map(file => {
-      return new Promise(resolve => {
-        const fileName =
-          year +
-          month.toString().padStart(2, '0') +
-          file
-            .join('')
-            .split('/')
-            .join('p') +
-          '.pdf';
-        const filePath = path.join(__dirname, '..', 'temp', fileName);
-        fs.unlinkSync(filePath);
-        resolve();
-      });
-    }),
-  );
+  // Email nekem
+  // await transporter.sendMail({
+  //   to: 'apagyi.david@gmail.com',
+  //   subject: 'KöMaL letöltő használva',
+  //   html: `${name} a következők letöltésére használta a programot: ${files
+  //     .map(file => {
+  //       return (
+  //         year +
+  //         month.toString().padStart(2, '0') +
+  //         file
+  //           .join('')
+  //           .split('/')
+  //           .join('p') +
+  //         '.pdf'
+  //       );
+  //     })
+  //     .join(', ')}.<br>A következő cím${emailAddresses.length > 1 ? 'ek' : ''}re lett elküldve: ${emailAddresses.join(
+  //     ', ',
+  //   )}`,
+  // });
+
+  // Fájlok törlése
+  // await Promise.all(
+  //   files.map(file => {
+  //     return new Promise(resolve => {
+  //       const fileName =
+  //         year +
+  //         month.toString().padStart(2, '0') +
+  //         file
+  //           .join('')
+  //           .split('/')
+  //           .join('p') +
+  //         '.pdf';
+  //       const filePath = path.join(__dirname, '..', 'temp', fileName);
+  //       fs.unlinkSync(filePath);
+  //       resolve();
+  //     });
+  //   }),
+  // );
 
   // console.log('Lib end');
 }
